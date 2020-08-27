@@ -31,8 +31,8 @@ class Course {
       };
 
   int get id => _id;
-  String get name => _name;
-  String get content => _content;
+  String get name => _name == null ? ' ' : _name;
+  String get content => _content == null ? ' ' : _content;
   String get hours => _hours;
   int get color => _color;
   int get selcolornum => _selcolornum;

@@ -37,7 +37,7 @@ class _NewCourseState extends State<NewCourse> {
       MaterialPageRoute(
         builder: (context) => HomePage(),
       ),
-      ModalRoute.withName('/'),
+      (Route<dynamic> route) => false,
     );
     print('course id is =  $id is added');
   }
@@ -57,7 +57,7 @@ class _NewCourseState extends State<NewCourse> {
       MaterialPageRoute(
         builder: (context) => HomePage(),
       ),
-      ModalRoute.withName('/'),
+      (Route<dynamic> route) => false,
     );
   }
 

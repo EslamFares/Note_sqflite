@@ -186,7 +186,13 @@ class _HomePageState extends State<HomePage> {
                               setState(() {
                                 helper.delete(course.id);
                               });
-                              Navigator.pop(context);
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                ),
+                                (Route<dynamic> route) => false,
+                              );
                             },
                             LButtonName: 'Cancel',
                             LbuttonOnClock: () {
