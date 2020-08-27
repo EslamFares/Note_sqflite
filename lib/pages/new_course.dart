@@ -18,15 +18,17 @@ class _NewCourseState extends State<NewCourse> {
   TextEditingController notehoure = TextEditingController();
   String name, content;
   String hours;
-  int color = ThemeData.dark().scaffoldBackgroundColor.value;
-  int colorSelected = 0;
+  int color; //ThemeData.dark().scaffoldBackgroundColor.value;
+  int colorSelected; //= 0;
   DbHelper helper;
+
   saveNote() async {
     Course course = Course({
       'name': name,
       'content': content,
       'hours': hours,
       'color': color,
+      'selcolornum': colorSelected,
     });
     // ignore: unused_local_variable
     int id = await helper.createCourse(course);
@@ -45,6 +47,7 @@ class _NewCourseState extends State<NewCourse> {
       'content': noteContant.text,
       'hours': notehoure.text,
       'color': color,
+      'selcolornum': colorSelected,
     });
     helper.upDate(updateNote);
     Navigator.push(
@@ -61,6 +64,10 @@ class _NewCourseState extends State<NewCourse> {
     noteName.text = widget.modifay ? widget.course.name : null;
     noteContant.text = widget.modifay ? widget.course.content : null;
     notehoure.text = widget.modifay ? widget.course.hours : null;
+    colorSelected = widget.modifay ? widget.course.selcolornum : 0;
+    color = widget.modifay
+        ? widget.course.color
+        : ThemeData.dark().scaffoldBackgroundColor.value;
   }
 
   @override
@@ -151,7 +158,9 @@ class _NewCourseState extends State<NewCourse> {
                         width: MediaQuery.of(context).size.width - 110,
                         height: 50,
                         decoration: BoxDecoration(
-                            color: ThemeData.dark().cardColor,
+                            color: colorSelected == 3
+                                ? ThemeData.dark().scaffoldBackgroundColor
+                                : ThemeData.dark().cardColor,
                             borderRadius: BorderRadius.circular(15)),
                         child: ListView(
                           scrollDirection: Axis.horizontal,

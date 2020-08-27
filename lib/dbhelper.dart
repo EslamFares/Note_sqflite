@@ -12,14 +12,14 @@ class DbHelper {
       return _db;
     }
     String path = join(await getDatabasesPath(), 'school.db');
-    _db = await openDatabase(
-      path,
-      version: 1,
-      onCreate: (Database db, int v) {
-        db.execute(
-            'create table courses(id integer primary key autoincrement, name varchar(50), content varchar(500), hours varchar(5), color integer)');
-      },
-    );
+    _db = await openDatabase(path, version: 2, onCreate: (Database db, int v) {
+      db.execute(
+          'create table courses(id integer primary key autoincrement, name varchar(50), content varchar(500), hours varchar(5), color integer)');
+    }, onUpgrade: (Database db, int oldV, int newV) async {
+      if (oldV < newV) {
+        await db.execute('alter table courses add column selcolornum integer');
+      }
+    });
     return _db;
   }
 

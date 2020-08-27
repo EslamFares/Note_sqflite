@@ -70,10 +70,11 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('${course.name == null ? ' ' : course.name}',
+                            Text(
+                                '${course.name == null ? ' ' : course.name}  ${course.selcolornum}',
                                 style: TextStyle(fontSize: 20)),
                             Text('${course.hours == null ? ' ' : course.hours}',
-                                style: TextStyle(fontSize: 14)),
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
                       ),
