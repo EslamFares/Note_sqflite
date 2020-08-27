@@ -91,140 +91,144 @@ class _NewCourseState extends State<NewCourse> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Form(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: TextFormField(
-                      controller: widget.modifay ? noteName : null,
-                      style: TextStyle(fontSize: 25),
-                      decoration: InputDecoration(
-                          hintText: ' Title . . .',
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(fontSize: 20)),
-                      onChanged: (value) {
-                        setState(() {
-                          name = value;
-                        });
-                      },
+        child: Container(
+          height: MediaQuery.of(context).size.height + 100,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Form(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: TextFormField(
+                        controller: widget.modifay ? noteName : null,
+                        style: TextStyle(fontSize: 25),
+                        decoration: InputDecoration(
+                            hintText: ' Title . . .',
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 20)),
+                        onChanged: (value) {
+                          setState(() {
+                            name = value;
+                          });
+                        },
+                      ),
                     ),
                   ),
-                ),
-                TextFormField(
-                  controller: widget.modifay ? noteContant : null,
-                  keyboardType: TextInputType.multiline,
-                  minLines: 17,
-                  maxLines: 18,
-                  decoration: InputDecoration(
-                    // counterText: widget.modifay ? widget.course.content : null,
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                      color: Colors.amber,
-                      width: 2,
-                    )),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 3,
-                        )),
-                    disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 3,
-                        )),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 3,
-                        )),
-                    hintText: 'Content . . .',
+                  TextFormField(
+                    controller: widget.modifay ? noteContant : null,
+                    keyboardType: TextInputType.multiline,
+                    minLines: 25,
+                    maxLines: 30,
+                    decoration: InputDecoration(
+                      // counterText: widget.modifay ? widget.course.content : null,
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                        color: Colors.amber,
+                        width: 2,
+                      )),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 3,
+                          )),
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 3,
+                          )),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                            width: 3,
+                          )),
+                      hintText: 'Content . . .',
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        content = value;
+                      });
+                    },
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      content = value;
-                    });
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        width: MediaQuery.of(context).size.width - 110,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: colorSelected == 3
-                                ? ThemeData.dark().scaffoldBackgroundColor
-                                : ThemeData.dark().cardColor,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: <Widget>[
-                            colorCircle(
-                                colorselected:
-                                    ThemeData.dark().scaffoldBackgroundColor,
-                                num: 0),
-                            colorCircle(
-                                colorselected: Color(0xff243447), num: 1),
-                            colorCircle(
-                                colorselected: Colors.pink.withOpacity(.8),
-                                num: 7),
-                            colorCircle(
-                                colorselected: ThemeData.dark().cardColor,
-                                num: 3),
-                            colorCircle(colorselected: Colors.teal, num: 6),
-                            colorCircle(colorselected: Colors.orange, num: 5),
-                            colorCircle(
-                                colorselected: Colors.yellow.withOpacity(.8),
-                                num: 4),
-                            colorCircle(colorselected: Colors.green, num: 2),
-                            colorCircle(colorselected: Colors.grey, num: 8),
-                            colorCircle(
-                                colorselected: Colors.lightBlue.withOpacity(.6),
-                                num: 9),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 80,
-                        child: TextFormField(
-                          controller: widget.modifay ? notehoure : null,
-                          maxLength: 5,
-                          style: TextStyle(letterSpacing: 2),
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: 'Status',
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.greenAccent, width: 3)),
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.greenAccent, width: 3)),
-                            disabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Colors.greenAccent, width: 3)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width - 110,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: colorSelected == 3
+                                  ? ThemeData.dark().scaffoldBackgroundColor
+                                  : ThemeData.dark().cardColor,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              colorCircle(
+                                  colorselected:
+                                      ThemeData.dark().scaffoldBackgroundColor,
+                                  num: 0),
+                              colorCircle(
+                                  colorselected: Color(0xff243447), num: 1),
+                              colorCircle(
+                                  colorselected: Colors.pink.withOpacity(.8),
+                                  num: 7),
+                              colorCircle(
+                                  colorselected: ThemeData.dark().cardColor,
+                                  num: 3),
+                              colorCircle(colorselected: Colors.teal, num: 6),
+                              colorCircle(colorselected: Colors.orange, num: 5),
+                              colorCircle(
+                                  colorselected: Colors.yellow.withOpacity(.8),
+                                  num: 4),
+                              colorCircle(colorselected: Colors.green, num: 2),
+                              colorCircle(colorselected: Colors.grey, num: 8),
+                              colorCircle(
+                                  colorselected:
+                                      Colors.lightBlue.withOpacity(.6),
+                                  num: 9),
+                            ],
                           ),
-                          onChanged: (value) {
-                            setState(() {
-                              hours = value;
-                            });
-                          },
                         ),
-                      ),
-                    ],
+                        Container(
+                          width: 80,
+                          child: TextFormField(
+                            controller: widget.modifay ? notehoure : null,
+                            maxLength: 5,
+                            style: TextStyle(letterSpacing: 2),
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              hintText: 'Status',
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.greenAccent, width: 3)),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.greenAccent, width: 3)),
+                              disabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.greenAccent, width: 3)),
+                            ),
+                            onChanged: (value) {
+                              setState(() {
+                                hours = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                // RaisedButton(child: Text('Save'), onPressed: saveNote)
-              ],
+                  // RaisedButton(child: Text('Save'), onPressed: saveNote)
+                ],
+              ),
             ),
           ),
         ),
