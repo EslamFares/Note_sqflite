@@ -32,11 +32,13 @@ class _NewCourseState extends State<NewCourse> {
     });
     // ignore: unused_local_variable
     int id = await helper.createCourse(course);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ));
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
+      ModalRoute.withName('/'),
+    );
     print('course id is =  $id is added');
   }
 
@@ -50,11 +52,13 @@ class _NewCourseState extends State<NewCourse> {
       'selcolornum': colorSelected,
     });
     helper.upDate(updateNote);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ));
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
+      ModalRoute.withName('/'),
+    );
   }
 
   @override
@@ -170,20 +174,19 @@ class _NewCourseState extends State<NewCourse> {
                                     ThemeData.dark().scaffoldBackgroundColor,
                                 num: 0),
                             colorCircle(
-                                colorselected: Colors.redAccent.withOpacity(.7),
-                                num: 1),
-                            colorCircle(colorselected: Colors.green, num: 2),
-                            colorCircle(
-                                colorselected: ThemeData.dark().cardColor,
-                                num: 3),
-                            colorCircle(
-                                colorselected: Colors.yellow.withOpacity(.8),
-                                num: 4),
-                            colorCircle(colorselected: Colors.orange, num: 5),
-                            colorCircle(colorselected: Colors.teal, num: 6),
+                                colorselected: Color(0xff243447), num: 1),
                             colorCircle(
                                 colorselected: Colors.pink.withOpacity(.8),
                                 num: 7),
+                            colorCircle(
+                                colorselected: ThemeData.dark().cardColor,
+                                num: 3),
+                            colorCircle(colorselected: Colors.teal, num: 6),
+                            colorCircle(colorselected: Colors.orange, num: 5),
+                            colorCircle(
+                                colorselected: Colors.yellow.withOpacity(.8),
+                                num: 4),
+                            colorCircle(colorselected: Colors.green, num: 2),
                             colorCircle(colorselected: Colors.grey, num: 8),
                             colorCircle(
                                 colorselected: Colors.lightBlue.withOpacity(.6),

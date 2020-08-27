@@ -34,7 +34,21 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_name: "^0.0.1"
+  flutter_launcher_icons: "^0.7.3"
+  flutter_native_splash: ^0.1.9
 
+flutter_launcher_name:
+  name: "Note"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/img/notepad.png"
+
+flutter_native_splash:
+  image: assets/img/notepad.png
+  color: "243447"  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -47,8 +61,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+assets:
+  - assets/img/notepad.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
